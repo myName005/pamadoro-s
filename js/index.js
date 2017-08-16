@@ -9,6 +9,7 @@ var app = new Vue({
 	{
 		pamadoroTime:20,
 		restTime:10,
-		numberOfSessions:5
+		numberOfSessions:5,
+		sessionsStarted:false
 	}
 })
