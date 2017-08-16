@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bulma.css">
 	<script type="text/javascript" src="js/vue@2.4.2.js"></script>
 
-	
+	<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
 <section class="section" id="app">
