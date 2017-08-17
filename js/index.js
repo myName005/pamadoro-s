@@ -23,6 +23,12 @@ var app = new Vue({
 			if(this.state == 'pamadoro')
 				return this.pamadoroTime;
 			return this.restTime;
+		},
+		progressClass()
+		{
+			if(this.state == 'pamadoro')
+				return "progress is-primary";
+			return "progress is-info";
 		}
 	},
 
@@ -66,8 +72,8 @@ var app = new Vue({
 		tick(){
 			var $this = this;
 			setInterval(function () {
-				$this.passedTime += 1/60;//add a second
-			},1000);
+				$this.passedTime += 1/600;//add a second
+			},100);
 		}
 
 	}

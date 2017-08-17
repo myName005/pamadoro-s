@@ -43,7 +43,7 @@
 			<p class="subtitle">
 				Pamadoro sessions
 			</p>
-			<progress class="progress is-primary" 
+			<progress :class="progressClass" 
 			:value="passedTime" :max="totalTime"></progress>
 	    </div>
 	</transition>
