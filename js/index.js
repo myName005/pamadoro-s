@@ -11,18 +11,17 @@ var app = new Vue({
 		numberOfSessions:5,
 		numberOfPassedSessions:0,
 		state:'beforeStart',
+		passedTime:0,
 
 	},
 	computed:{
 		isBeforStart(){
 			return this.state == 'beforeStart'
 		},
-		passedTime(){
-			return 0;
-		},
+		
 		totalTime(){
 			if(this.state == 'pamadoro')
-				return this.passedTime;
+				return this.pamadoroTime;
 			return this.restTime;
 		}
 	},
@@ -32,11 +31,13 @@ var app = new Vue({
 		startSessions()
 		{
 			this.startPamadero();
+			this.tick();
 		},
 		startPamadero()
 		{
 			var $this = this;
 			$this.state='pamadoro';
+			$this.passedTime = 0;
 
 			setTimeout(function () {
 				$this.numberOfPassedSessions++;
@@ -52,6 +53,8 @@ var app = new Vue({
 		{
 			var $this = this;
 			$this.state='rest';
+			$this.passedTime = 0;
+
 			setTimeout(function () {
 				$this.startPamadero();
 			}, $this.restTime*60000);
@@ -60,7 +63,12 @@ var app = new Vue({
 		{
 			this.state='end'
 		},
-		
+		tick(){
+			var $this = this;
+			setInterval(function () {
+				$this.passedTime += 1/60;//add a second
+			},1000);
+		}
 
 	}
 
