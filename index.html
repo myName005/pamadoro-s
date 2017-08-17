@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Pamadoro</title>
 	<link rel="stylesheet" type="text/css" href="css/bulma.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 
-	<script type="text/javascript" src="js/vue@2.4.2.js"></script>
+	<script type="text/javascript" src="js/vue.min.js"></script>
 </head>
 <body>
 <section class="section" id="app">
 	<transition name="fade" mode="out-in">
-	    <div key="1" v-if="!sessionsStarted" class="container box">
+	    <div key="1" v-if="isBeforStart" class="container box">
 			<h1 class="title">
 				Pamadoro
 			</h1>
@@ -32,17 +33,18 @@
 				</div>
 			</div>
 			
-			<button class="button is-primary" @click="sessionsStarted = true"
+			<button class="button is-primary" @click="startSessions"
 			>Start</button>
 	    </div>
-	    <div key="2" v-if="sessionsStarted" class="container box">
+	    <div key="2" v-else class="container box">
 			<h1 class="title">
-				Pamadoro
+				{{state}}
 			</h1>
 			<p class="subtitle">
 				Pamadoro sessions
 			</p>
-			<progress class="progress is-primary" value="30" max="100"></progress>
+			<progress class="progress is-primary" 
+			:value="passedTime" :max="totalTime"></progress>
 	    </div>
 	</transition>
 	
