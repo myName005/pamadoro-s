@@ -41,10 +41,11 @@ var app = new Vue({
 		},
 		startPamadero()
 		{
+
 			var $this = this;
 			$this.state='pamadoro';
 			$this.passedTime = 0;
-
+			Notify.playSound();
 			setTimeout(function () {
 				$this.numberOfPassedSessions++;
 
@@ -57,6 +58,7 @@ var app = new Vue({
 		},
 		startRest()
 		{
+			Notify.playSound();
 			var $this = this;
 			$this.state='rest';
 			$this.passedTime = 0;
@@ -67,7 +69,8 @@ var app = new Vue({
 		},
 		end()
 		{
-			this.state='end'
+			this.state='end';
+			Notify.playSound();
 		},
 		tick(){
 			var $this = this;

@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 
 	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/notify.js"></script>
 </head>
 <body>
 <section class="section" id="app">
@@ -40,9 +41,6 @@
 			<h1 class="title">
 				{{state}}
 			</h1>
-			<p class="subtitle">
-				Pamadoro sessions
-			</p>
 			<progress :class="progressClass" 
 			:value="passedTime" :max="totalTime"></progress>
 	    </div>
